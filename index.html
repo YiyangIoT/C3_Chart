@@ -36,7 +36,7 @@
 
         function updateChart() {
             var ip = getIp();
-            fetch('http://' + ip + '/a0')
+            fetch('https://' + ip + '/a0')
                 .then(function (response) {
                     return response.json();
                 })
@@ -53,7 +53,7 @@
 
         function callBlink() {
             var ip = getIp();
-            fetch('http://' + ip + '/a0')
+            fetch('https://' + ip + '/a0')
                 .then(function (response) {
                     console.log("ok");
                 });
@@ -63,7 +63,7 @@
 
         function callA0() {
             var ip = getIp();
-            fetch('http://' + ip + '/a0')
+            fetch('https://' + ip + '/a0')
                 .then(function (response) {
                     return response.json();
                 })
