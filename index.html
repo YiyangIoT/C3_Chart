@@ -20,9 +20,13 @@
         var A0s;
         var chart;
 
+        function getIp() {
+            return document.getElementById("ip").value;
+        }
+
         function autoChart() {
 
-            setInterval(()=>{
+            setInterval(() => {
                 updateChart();
             }, 1000);
 
@@ -31,8 +35,8 @@
 
 
         function updateChart() {
-
-            fetch('http://192.168.1.46/a0')
+            var ip = getIp();
+            fetch('http://' + ip + '/a0')
                 .then(function (response) {
                     return response.json();
                 })
@@ -45,12 +49,11 @@
                         ]
                     });
                 });
-
         }
 
         function callBlink() {
-
-            fetch('http://192.168.1.46/a0')
+            var ip = getIp();
+            fetch('http://' + ip + '/a0')
                 .then(function (response) {
                     console.log("ok");
                 });
@@ -59,7 +62,8 @@
         }
 
         function callA0() {
-            fetch('http://192.168.1.46/a0')
+            var ip = getIp();
+            fetch('http://' + ip + '/a0')
                 .then(function (response) {
                     return response.json();
                 })
@@ -91,6 +95,8 @@
     <input type="button" value="Update Chart" onclick="updateChart()">
     <input type="button" value="Dynamic Chart" onclick="autoChart()">
     <div id="chart"></div>
+
+    <input type="text" name="" id="ip" value="192.168.0.4">
 
 </body>
 
