@@ -41,14 +41,16 @@
 
 
         function updateChart() {
-            var ip = getIp();
-            fetch('http://' + ip + '/a0')
+            // var ip = getIp();
+            // fetch('http://' + ip + '/a0')
+            fetch('https://cloud.arest.io/YY0001/temperature')
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (data) {
                     console.log(data);
-                    A0s = [data.A0].concat(A0s);
+                    // A0s = [data.A0].concat(A0s);
+                    A0s = [data.temperature].concat(A0s);
                     A0s.splice(MAX_LEN, 1);
 
                     chart.load({
